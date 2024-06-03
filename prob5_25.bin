@@ -1,0 +1,17 @@
+; compares two numbers in R2 & R3, put larger in R1
+; if numbers are equal set R1 to 0
+;
+; demo
+;
+0011000000000000        ;set orig x3000
+1001 100 011 111111
+0001 100 100 1 00001
+0001 001 100 0 00 010
+0000 010 000000101
+0000 100 000000001
+0000 001 000000010
+0001 001 011 1 00000        ; (ADD R1, R3 #0) R1 <= Large value
+0000 111 000000001      ;(BRnzp Done)
+0101 001 010 1 00000    ; (Reg2 AND R1, R2, #0) R1 <= large value
+1111 0000 0010 0101     ;(Done Trap 0x25)
+;

@@ -1,0 +1,11 @@
+;6.4
+; multiply two numbers
+;load values into r4 & r5
+;Results = R2
+;
+0011 0010 00000000 ;load instruction (x3200)
+0101 010 010 1 00000    ;AND r2, r2, #0 - zero out R2
+0001 010 010 0 00100    ;ADD R2 = R2+R4
+0001 101 101 1 11111     ;Add R5 + (-1) - decrement counter (R5)
+0000 001 111111101  ;Branch if counter (R5) is positive
+1111 0000 00100101  ;Trap x25 (halt)
